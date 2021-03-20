@@ -16,17 +16,17 @@ class HotButton extends React.Component {
   }
 
   getColor() {
-    if (this.state.click === 0 || this.state.click === 1 || this.state.click === 2 || this.state.click === 3) {
+    if (this.state.click <= 3) {
       return 'purple';
-    } else if (this.state.click === 4 || this.state.click === 5 || this.state.click === 6) {
+    } else if (this.state.click <= 6) {
       return 'lightpurple';
-    } else if (this.state.click === 7 || this.state.click === 8 || this.state.click === 9) {
+    } else if (this.state.click <= 9) {
       return 'red';
-    } else if (this.state.click === 10 || this.state.click === 11 || this.state.click === 12) {
+    } else if (this.state.click <= 12) {
       return 'orange';
-    } else if (this.state.click === 13 || this.state.click === 14 || this.state.click === 15) {
+    } else if (this.state.click <= 15) {
       return 'yellow';
-    } else if (this.state.click === 16 || this.state.click === 17 || this.state.click === 18) {
+    } else if (this.state.click <= 18) {
       return 'white';
     }
   }
