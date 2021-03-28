@@ -1,0 +1,14 @@
+.container {
+  position: fixed;
+  width: 20%;
+  height: 100%;
+  left: 10;
+}
+
+.right {
+  position: fixed;
+  width: 80%;
+  height: 100%;
+  right: 0;
+  background-color: #818181;
+}
