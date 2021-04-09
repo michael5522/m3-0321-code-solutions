@@ -62,49 +62,16 @@ export default class App extends React.Component {
 
   toggleCompleted(todoId) {
 
-    // let matchingTodo;
-    // for (let i = 0; i < this.state.todos.length; i++) {
-    //   const currentToDo = this.state.todos[i];
-    //   if (currentToDo.todoId === todoId) {
-    //     matchingTodo = currentToDo;
-    //   }
-    // }
-    // console.log(matchingTodo);
-    // fetch(`/api/todos/${todoId}`, {
-    //   method: 'PATCH',
-    //   headers: {
-    //     'Content-Type': 'application/json'
-    //   },
-    //   body: JSON.stringify({ isCompleted: !matchingTodo.isCompleted })
-    // })
-    //   .then(response => response.json())
-    //   .then(data => {
-    //     const newTodo = [...this.state.todos];
-    //     newTodo[matchingTodo] = data;
-    //     this.setState({ todos: newTodo });
-    //   })
-    //   .catch(error => {
-    //     console.error('Error:', error);
-    //   });
-
-    let completedIndex;
+    let matchingTodo;
     for (let i = 0; i < this.state.todos.length; i++) {
       const currentToDo = this.state.todos[i];
       if (currentToDo.todoId === todoId) {
-        completedIndex = currentToDo.todoId;
+        matchingTodo = i;
       }
     }
-    const todos = this.state.todos;
-    // console.log(completedIndex);
-    const isCompletedStatus = !todos[completedIndex].isCompleted;
-    // console.log(isCompletedStatus);
 
-    // const todos = this.state.todos;
-    // console.log(todos);
-    // const completedIndex = todos.findIndex((todo, index) => todo.todoId === todoId);
-    // console.log(completedIndex)
-    // const isCompletedStatus = !todos[completedIndex].isCompleted;
-    //   console.log('opposite',isCompletedStatus);
+    const todos = this.state.todos;
+    const isCompletedStatus = !todos[matchingTodo].isCompleted;
     fetch(`/api/todos/${todoId}`, {
       method: 'PATCH',
       headers: {
@@ -115,12 +82,13 @@ export default class App extends React.Component {
       .then(response => response.json())
       .then(data => {
         const newTodo = [...this.state.todos];
-        newTodo[completedIndex] = data;
+        newTodo[matchingTodo] = data;
         this.setState({ todos: newTodo });
       })
       .catch(error => {
         console.error('Error:', error);
       });
+
   }
 
   render() {
