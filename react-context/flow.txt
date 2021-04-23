@@ -1,0 +1,18 @@
+User can sign up.
+If user clicks "register"  route value becomes "#sign-up".
+Since the path is "sign-up", the Auth.jsx page will be rendered.
+If the user types a name and a password, it will be added into the database.
+
+
+User can sign in.
+If user clicks "sign in"  route value becomes "#sign-in".
+Since the path is "sign-in", the Auth.jsx page will be rendered.
+After the user types in his name and passowrd, the database will check if the username and password matches.
+If it does not match, an error is given. If it does, the user will be allowed access inside the website.
+
+User can stay signed in (even if they refresh the page).
+If a user is still logged in, the "isAuthorizing" inside state will have a token so even a refresh will keep the current status quo unless user logs out and makes the "isAuthorizing" false.
+
+User can sign out.
+If user clicks "sign out",  the user in state becomes set to "null" & data from 'react-context-jwt' removed.
+The page will default back to the sign-in/sign-up page.
